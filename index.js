@@ -10,18 +10,19 @@ function setCart(c) {
 }
 
 function addToCart(itemname) {
-  var count 
+
   var Price = Math.floor(Math.random() * 99)
   for (var i = 0; i < cart.length; i ++) {
     if (cart[i].itemName === itemname) {
      cart[i].Quantity++
+     return `${itemname} has been added to your cart.`
     }
+  }
   var addons = {
     itemName: itemname,
-    itemPrice: Price
-    Quantity: count
+    itemPrice: Price,
+    Quantity: 1
   } 
-  add a property 
   cart.push(addons)
   return `${itemname} has been added to your cart.`
 }
