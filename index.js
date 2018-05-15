@@ -10,14 +10,26 @@ function setCart(c) {
 }
 
 function addToCart(itemname) {
+  var count 
   var Price = Math.floor(Math.random() * 99)
+  for (var i = 0; i < cart.length; i ++) {
+    if (cart[i].itemName === itemname) {
+     cart[i].Quantity++
+    }
   var addons = {
     itemName: itemname,
     itemPrice: Price
+    Quantity: count
   } 
+  add a property 
   cart.push(addons)
   return `${itemname} has been added to your cart.`
 }
+
+
+
+
+
 
 
 function viewCart() {
@@ -37,12 +49,13 @@ function viewCart() {
     for (var i = 0; i < cart.length; i++) {
       
       // When printing out the last object, we need to have "and" in front of it. 
-      if (i === cart.length - 1) { 
-        result += `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+      if (cart[i].itemName[0] === 'b') {
+        if (i === cart.length- 1) { 
+          result += `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
         
       // Other than all those cases above, we need commas to sepearate each object and in order to do so, put comma at the end
-      } else {
-        result += `${cart[i].itemName} at $${cart[i].itemPrice}, `
+        } else {
+          result += `${cart[i].itemName} at $${cart[i].itemPrice}, `
       }
     }
   }
@@ -50,6 +63,7 @@ function viewCart() {
   //Now return the result. 
   return result
 }
+
 
 //iterate through cart list and sum up itemPrice. 
 function total() {
